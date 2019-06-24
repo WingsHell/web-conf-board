@@ -65,6 +65,10 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { LoginComponent } from './connexion/login/login.component';
 import { SigninComponent } from './connexion/signin/signin.component';
+import { HomeComponent } from './home/home/home.component';
+import { HomeBannerComponent } from './home/home-banner/home-banner.component';
+import { HomeFeaturesComponent } from './home/home-features/home-features.component';
+import { HomeFeatureCardComponent } from './home/home-feature-card/home-feature-card.component';
 
 /**
  * NgModule that includes all Material modules that are required.
@@ -129,7 +133,11 @@ export class MaterialModule {}
     ListUserComponent,
     SigninComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    HomeComponent,
+    HomeBannerComponent,
+    HomeFeaturesComponent,
+    HomeFeatureCardComponent
   ],
   imports: [
     BrowserModule,
