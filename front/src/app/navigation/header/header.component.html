@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <div>
+      <button mat-icon-button id="menu" (click)="navService.openNav()">
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div>
+    <ul class="navigation-items">
+      <li>
+          <a class="nav-link" routerLink="#"><span class="header-link">Proto - Web Conference Board / Angular 8+ / Material UI</span></a>
+      </li>
+    </ul>
+
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li>
+              <a class="nav-link" routerLink="#"><span class="header-link">Loggin</span></a>
+          </li>
+          <li>
+              <a class="nav-link" routerLink="#"><span class="header-link">Action</span></a>
+          </li>
+      </ul>
+  </div>
+</mat-toolbar>
