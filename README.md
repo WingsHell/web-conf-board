@@ -4,7 +4,7 @@
 
 project to make web conf more easier to manage
 
-#Getting started
+# Getting started
 
     Go to project folder and install dependencies:
 
