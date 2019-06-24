@@ -1,0 +1,50 @@
+@import '../../UI/theme';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+
+  .mat-list-item.active {
+    background-color: mat-color($app-primary, 600);
+    color:white;
+  }
+  &:hover,
+  &:focus {
+    >.mat-list-item:not(.expanded) {
+      background-color: mat-color($app-primary, 600) !important;
+    }
+  }
+}
+
+.mat-list-item {
+  padding: 8px 0;
+  display: flex;
+  width: auto;
+  font-size: 18px;
+  background-color: mat-color($app-primary, 600);
+  color:white;
+  .routeIcon {
+    margin-right: 2.5rem;
+  }
+}
+
+// -------------- style css pour soulignement lien de navigation avec transistion ---------
+.sidenav-link {
+  border-bottom: 4px solid transparent;
+  transition:0.5s;
+  padding-bottom: 0.2rem;
+}
+
+.mat-list-item .sidenav-link{
+  border:none;
+  background:linear-gradient(to top, turquoise,turquoise) no-repeat bottom left;
+  background-size:0px 2px
+}
+
+.mat-list-item .nav-link:hover .sidenav-link {
+  background-size:100% 2px
+}
+
+// ----------------------------------------------------------------------
