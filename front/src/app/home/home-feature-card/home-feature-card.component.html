@@ -1,4 +1,4 @@
-<!-- Carte de fonctionnalité -->
+<!-- Carte de fonctionnalité
 <div class="card mb-3">
   <h3 class="card-header">{{ title }}</h3>
   <div class="card-body">
@@ -10,3 +10,23 @@
    </li>
   </ul>
  </div>
+-->
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{conference.title}}</mat-card-title>
+      <mat-card-subtitle>{{conference.expert}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{conference.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+

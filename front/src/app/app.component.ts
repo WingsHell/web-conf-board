@@ -14,133 +14,70 @@ export class AppComponent implements AfterViewInit {
   version = VERSION;
   navItems: NavItem[] = [
     {
-      displayName: 'Client',
-      iconName: 'group',
-      route: 'client',
+      displayName: 'DashBoard',
+      iconName: 'dashboard',
+      route: 'home',
+    },
+    {
+      displayName: 'Profile',
+      iconName: 'supervisor_account',
+      route: 'details-user',
+    },
+    {
+      displayName: 'Gestion',
+      iconName: 'settings',
+      route: 'gestion',
       children: [
         {
-          displayName: 'Consulter',
-          iconName: 'zoom_in',
-          route: 'client/consulter',
+          displayName: 'Utilisateurs',
+          iconName: 'group',
+          route: 'gestion/utilisateur',
           children: [
             {
-              displayName: 'Liste des clients',
-              iconName: 'list',
-              route: 'client/consulter/client-list',
+              displayName: 'Liste Utilisateurs',
+              iconName: '',
+              route: 'gestion/utilisateur/list-user'
+            },
+            {
+              displayName: 'Ajouter Utilisateur',
+              iconName: '',
+              route: 'gestion/utilisateur/add-user'
+            },
+            {
+              displayName: 'Rechercher Utilisateur',
+              iconName: '',
+              route: 'gestion/utilisateur/search-user'
             }
           ]
         },
         {
-          displayName: 'Création',
-          iconName: 'person_add',
-          route: 'client/creation',
+          displayName: 'Conférences',
+          iconName: 'record_voice_over',
+          route: 'gestion/conference',
           children: [
             {
-              displayName: 'Ajouter client',
-              iconName: 'add',
-              route: 'client/creation/client-add',
-            }
-          ]
-        },
-        {
-          displayName: 'Edition',
-          iconName: 'edit',
-          route: 'client/edition',
-          children: [
+              displayName: 'Liste Conférences',
+              iconName: '',
+              route: 'gestion/conference/list-conference'
+            },
             {
-              displayName: 'Recherche du client',
-              iconName: 'search',
-              route: 'client/edition/client-edit/:id',
+              displayName: 'Ajouter Conférence',
+              iconName: '',
+              route: 'gestion/conference/add-conference'
+            },
+            {
+              displayName: 'Rechercher Conférence',
+              iconName: '',
+              route: 'gestion/conference/search-conference'
             }
           ]
         }
       ]
     },
     {
-      displayName: 'Contrat',
-      iconName: 'description',
-      route: 'contrat',
-      children: [
-        {
-          displayName: 'Consulter',
-          iconName: 'zoom_in',
-          route: 'contrat/consulter',
-          children: [
-            {
-              displayName: 'Liste des contrats',
-              iconName: 'list',
-              route: 'contrat/consulter/contrat-list',
-            }
-          ]
-        },
-        {
-          displayName: 'Création',
-          iconName: 'note_add',
-          route: 'contrat/creation',
-          children: [
-            {
-              displayName: 'Ajouter contrat',
-              iconName: 'add',
-              route: 'contrat/creation/contrat-add',
-            }
-          ]
-        },
-        {
-          displayName: 'Edition',
-          iconName: 'edit',
-          route: 'contrat/edition',
-          children: [
-            {
-              displayName: 'Recherche du contrat',
-              iconName: 'search',
-              route: 'contrat/edition/contrat-edit/:id',
-            }
-          ]
-        }
-      ]
-    },
-    {
-      displayName: 'Sinistre',
-      iconName: 'notification_important',
-      route: 'sinistre',
-      children: [
-        {
-          displayName: 'Consulter',
-          iconName: 'zoom_in',
-          route: 'sinistre/consulter',
-          children: [
-            {
-              displayName: 'Liste des sinistres',
-              iconName: 'list',
-              route: 'sinistre/consulter/sinistre-list',
-            }
-          ]
-        },
-        {
-          displayName: 'Création',
-          iconName: 'add_alert',
-          route: 'sinsitre/creation',
-          children: [
-            {
-              displayName: 'Ajouter sinistre',
-              iconName: 'add',
-              route: 'sinistre/creation/sinistre-add',
-            }
-          ]
-        },
-        {
-          displayName: 'Edition',
-          iconName: 'edit',
-          route: 'sinistre/edition',
-          children: [
-            {
-              displayName: 'Recherche du sinistre',
-              iconName: 'search',
-              route: 'sinistre/edition/sinsitre-edit/:id',
-            }
-          ]
-        }
-      ]
+      displayName: 'Top 10 conférences',
+      iconName: 'stars',
+      route: 'top10conf',
     }
   ];
 

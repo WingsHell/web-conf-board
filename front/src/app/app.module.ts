@@ -58,7 +58,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 
 // Component
-import { AddUserComponent } from './user/add-user/add-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { HeaderComponent } from './navigation/header/header.component';
@@ -69,7 +68,8 @@ import { HomeComponent } from './home/home/home.component';
 import { HomeBannerComponent } from './home/home-banner/home-banner.component';
 import { HomeFeaturesComponent } from './home/home-features/home-features.component';
 import { HomeFeatureCardComponent } from './home/home-feature-card/home-feature-card.component';
-
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
+import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
 /**
  * NgModule that includes all Material modules that are required.
  */
@@ -128,7 +128,8 @@ export class MaterialModule {}
   declarations: [
     AppComponent,
     LoginComponent,
-    AddUserComponent,
+    NotFoundComponent,
+    ServerErrorComponent,
     EditUserComponent,
     ListUserComponent,
     SigninComponent,
