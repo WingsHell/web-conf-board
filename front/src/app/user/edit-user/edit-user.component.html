@@ -1,6 +1,6 @@
     <mat-card style="width: 60%;margin-right: auto;margin-left: auto;">
         <div style="width:50%; margin: 0 auto 0 auto">
-          <table *ngIf="!user.nom" style="padding-right: 0;">
+          <table style="padding-right: 0;">
               <ng-container matColumnDef="nom">
                 <td>
                     {{user.nom ? 'Edit' : 'Add'}} User
@@ -70,7 +70,15 @@
                   </mat-grid-list>
                   <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
                     <mat-grid-tile>
-                      <div fxFlex fxLayout="column">  <!--  class="example-container"  -->
+
+                        <mat-form-field *ngIf="user.nom" appearance="outline" style="width:100%">
+                            <mat-label><u>Mot de passe</u> :</mat-label>
+                            <input matInput placeholder="Mot de passe" [(ngModel)]="user.mdp"
+                                    required name="mdp" #mdp >
+                        </mat-form-field>
+
+
+                      <div fxFlex fxLayout="column" *ngIf="!user.nom">  <!--  class="example-container"  -->
                         <mat-form-field appearance="outline" style="width:100%">
                           <input matInput placeholder="Entrer votre mot de passe" [type]="hide ? 'password' : 'text'">
                           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">

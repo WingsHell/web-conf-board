@@ -2,6 +2,11 @@
 @import './UI/theme';
 @import './UI/navigation';
 
+.monTh .mat-sort-header-container {
+  justify-content: center;
+  padding-left: 1.145rem;
+}
+
 .mat-form-field-appearance-outline .mat-form-field-flex {
   height: 40px;
   align-items: center;
