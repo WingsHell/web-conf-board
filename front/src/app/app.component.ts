@@ -16,6 +16,11 @@ export class AppComponent implements AfterViewInit {
     {
       displayName: 'DashBoard',
       iconName: 'dashboard',
+      route: 'dashboard',
+    },
+    {
+      displayName: 'Home',
+      iconName: 'home',
       route: 'home',
     },
     {
@@ -42,11 +47,6 @@ export class AppComponent implements AfterViewInit {
               displayName: 'Ajouter Utilisateur',
               iconName: '',
               route: 'gestion/utilisateur/add-user'
-            },
-            {
-              displayName: 'Rechercher Utilisateur',
-              iconName: '',
-              route: 'gestion/utilisateur/search-user'
             }
           ]
         },
@@ -64,11 +64,6 @@ export class AppComponent implements AfterViewInit {
               displayName: 'Ajouter Conférence',
               iconName: '',
               route: 'gestion/conference/add-conference'
-            },
-            {
-              displayName: 'Rechercher Conférence',
-              iconName: '',
-              route: 'gestion/conference/search-conference'
             }
           ]
         }

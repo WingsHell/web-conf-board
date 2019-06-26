@@ -16,7 +16,7 @@ export class ListUserComponent implements OnInit, AfterViewInit {
 
   users: User[];
 
-  public displayedColumns = ['nom', 'prenom', 'email', 'consulter', 'editer', 'supprimer'];
+  public displayedColumns = ['nom', 'prenom', 'username', 'email', 'consulter', 'editer', 'supprimer'];
   public dataSource = new MatTableDataSource<User>();
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;

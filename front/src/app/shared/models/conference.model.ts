@@ -4,6 +4,8 @@ export class Conference {
   public expert: string;
   public description: string;
   public categorie: string;
-  public vote: number;
+  public votes: number;
+  public score: number;
+  public rate: number;
   public href: string;
 }

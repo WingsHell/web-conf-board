@@ -62,14 +62,16 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-import { LoginComponent } from './connexion/login/login.component';
-import { SigninComponent } from './connexion/signin/signin.component';
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home/home.component';
 import { HomeBannerComponent } from './home/home-banner/home-banner.component';
 import { HomeFeaturesComponent } from './home/home-features/home-features.component';
 import { HomeFeatureCardComponent } from './home/home-feature-card/home-feature-card.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
+import { EditConferenceComponent } from './conference/edit-conference/edit-conference.component';
+import { ListConferenceComponent } from './conference/list-conference/list-conference.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 /**
  * NgModule that includes all Material modules that are required.
  */
@@ -127,18 +129,20 @@ export class MaterialModule {}
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
     LoginComponent,
     NotFoundComponent,
     ServerErrorComponent,
     EditUserComponent,
     ListUserComponent,
-    SigninComponent,
     HeaderComponent,
     SidenavListComponent,
     HomeComponent,
     HomeBannerComponent,
     HomeFeaturesComponent,
-    HomeFeatureCardComponent
+    HomeFeatureCardComponent,
+    EditConferenceComponent,
+    ListConferenceComponent
   ],
   imports: [
     BrowserModule,

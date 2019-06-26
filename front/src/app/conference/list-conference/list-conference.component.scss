@@ -1,5 +1,18 @@
+.text-color {
+  color: #3f51b5;
+}
+
+mat-accordion{
+  margin-top: 20px;
+}
+
+mat-card-actions {
+  text-align: center;
+}
+
 .mat-table {
   margin: auto;
+  width: 100%;
 }
 
 th.mat-header-cell {
@@ -30,4 +43,6 @@ td.mat-cell:first-of-type {
   padding-left: 0px;
 }
 
-
+.mat-expansion-panel-header-description {
+  flex-grow: 1.42;
+}

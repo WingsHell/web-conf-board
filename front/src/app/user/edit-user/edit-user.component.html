@@ -2,8 +2,11 @@
         <div style="width:50%; margin: 0 auto 0 auto">
           <table style="padding-right: 0;">
               <ng-container matColumnDef="nom">
-                <td>
-                    {{user.nom ? 'Edit' : 'Add'}} User
+                <td *ngIf="!user.nom">
+                    Inscription
+                </td>
+                <td *ngIf="user.nom">
+                    Edition Utilisateurs
                 </td>
               </ng-container>
             </table>
@@ -96,9 +99,9 @@
 
       <mat-card-actions>
             <div style="text-align: center">
-              <button mat-raised-button color="primary" type="submit"
+              <button mat-raised-button class="btn-card" color="primary" type="submit"
                   [disabled]="!userForm.form.valid">Save</button>
-              <button mat-raised-button color="secondary" (click)="remove(user.href)"
+              <button mat-raised-button class="btn-card" color="secondary" (click)="remove(user.href)"
                   *ngIf="user.href" type="button">Delete</button>
               <a mat-button [routerLink]="['/list-user']">Cancel</a>
             </div>

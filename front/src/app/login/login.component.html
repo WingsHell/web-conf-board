@@ -1,10 +1,20 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>Login</mat-card-title>
-  </mat-card-header>
+<mat-card style="width:15%;margin-right: auto;margin-left: auto;height:18rem">
   <mat-card-content>
+      <div style="width:70%; margin: 0 auto 0 auto">
+          <table class="tableTitre">
+              <ng-container matColumnDef="titre">
+                <td class="tableTd">
+                    <div>
+                      Connexion
+                    </div>
+
+                </td>
+              </ng-container>
+            </table>
+        </div>
+        <hr>
     <form class="example-form">
-      <table class="example-full-width" cellspacing="0">
+      <table class="tableForm" cellspacing="0">
         <tr>
           <td>
             <mat-form-field class="example-full-width">
@@ -21,6 +31,6 @@
     <!--<mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>-->
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="login()" color="primary">Login</button>
+    <button mat-raised-button class="btn-card" (click)="login()" color="primary">Login</button>
   </mat-card-actions>
 </mat-card>
