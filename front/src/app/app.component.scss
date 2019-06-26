@@ -2,3 +2,48 @@
 @import './UI/theme';
 @import './UI/navigation';
 
+.monTh .mat-sort-header-container {
+  justify-content: center;
+  padding-left: 1.145rem;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-flex {
+  height: 40px;
+  align-items: center;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  font-size: 13px;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.monTh .mat-sort-header-container {
+  justify-content: center;
+  padding-left: 1.3rem;
+}
+
+.tableTitre {
+  margin: 0 auto 0 auto;
+}
+
+.tableTd {
+  vertical-align: middle;
+  text-align: center;
+  padding-right: 0.80rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+mat-card-actions {
+  text-align: center;
+}
+
+.btn-card{
+  height: 50;
+  width: 80;
+  font-size: 16px;
+}

@@ -1,3 +1,111 @@
-<p>
-  edit-user works!
-</p>
+    <mat-card style="width: 60%;margin-right: auto;margin-left: auto;">
+        <div style="width:50%; margin: 0 auto 0 auto">
+          <table style="padding-right: 0;">
+              <ng-container matColumnDef="nom">
+                <td *ngIf="!user.nom">
+                    Inscription
+                </td>
+                <td *ngIf="user.nom">
+                    Edition Utilisateurs
+                </td>
+              </ng-container>
+            </table>
+        </div>
+      <form #userForm="ngForm"  (ngSubmit)="save(userForm.value)">
+        <mat-card-content>
+          <mat-grid-list cols="2" rowHeight="20rem">
+            <mat-grid-tile>
+              <mat-card style="width: 85%;margin-right: auto;margin-left: auto;">
+                <mat-card-content>
+                  <input *ngIf="user.nom" type="hidden" name="href" [(ngModel)]="user.href">
+                  <input *ngIf="user.nom" type="hidden" name="id" [(ngModel)]="user.id">
+                  <div style="text-align: center"><h4><u>Dénomination</u> :</h4></div>
+                  <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
+                    <mat-grid-tile>
+                      <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label><u>Prénom</u> :</mat-label>
+                        <input matInput placeholder="Prénom" [(ngModel)]="user.prenom"
+                                name="prenom" #prenom>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
+                    <mat-grid-tile>
+                      <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label><u>Nom</u> :</mat-label>
+                        <input matInput placeholder="Nom" [(ngModel)]="user.nom"
+                                name="nom" #nom>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
+                    <mat-grid-tile>
+                      <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label><u>Username</u> :</mat-label>
+                        <input matInput placeholder="Username" [(ngModel)]="user.username"
+                                name="username" #username>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-card style="width: 85%;margin-right: auto;margin-left: auto;">
+                <mat-card-content>
+                  <input *ngIf="user.nom" type="hidden" name="href" [(ngModel)]="user.href">
+                  <input *ngIf="user.nom" type="hidden" name="id" [(ngModel)]="user.id">
+                  <div style="text-align: center"><h4><u>Identification</u> :</h4></div>
+
+                  <mat-grid-list cols="1" rowHeight="0.5rem" gutterSize="2rem">
+                    <mat-grid-tile>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
+                    <mat-grid-tile>
+                      <mat-form-field appearance="outline" style="width:100%">
+                        <mat-label><u>Email</u> :</mat-label>
+                        <input matInput placeholder="Email" [(ngModel)]="user.email"
+                                name="email" #email>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                  <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
+                    <mat-grid-tile>
+
+                        <mat-form-field *ngIf="user.nom" appearance="outline" style="width:100%">
+                            <mat-label><u>Mot de passe</u> :</mat-label>
+                            <input matInput placeholder="Mot de passe" [(ngModel)]="user.mdp"
+                                    required name="mdp" #mdp >
+                        </mat-form-field>
+
+
+                      <div fxFlex fxLayout="column" *ngIf="!user.nom">  <!--  class="example-container"  -->
+                        <mat-form-field appearance="outline" style="width:100%">
+                          <input matInput placeholder="Entrer votre mot de passe" [type]="hide ? 'password' : 'text'">
+                          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+                        </mat-form-field>
+                      </div>
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                </mat-card-content>
+                </mat-card>
+              </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+
+      <mat-card-actions>
+            <div style="text-align: center">
+              <button mat-raised-button class="btn-card" color="primary" type="submit"
+                  [disabled]="!userForm.form.valid">Save</button>
+              <button mat-raised-button class="btn-card" color="secondary" (click)="remove(user.href)"
+                  *ngIf="user.href" type="button">Delete</button>
+              <a mat-button [routerLink]="['/list-user']">Cancel</a>
+            </div>
+      </mat-card-actions>
+    </form>
+    </mat-card>
+

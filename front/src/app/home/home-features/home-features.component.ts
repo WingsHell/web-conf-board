@@ -1,33 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { ConferenceService } from './../../shared/services/conference.service';
+import { Conference } from 'src/app/shared/models/conference.model';
+import { Subscription } from 'rxjs';
+import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'ak-home-features',
   templateUrl: './home-features.component.html',
   styleUrls: ['./home-features.component.scss']
 })
-export class HomeFeaturesComponent implements OnInit {
+export class HomeFeaturesComponent implements OnInit, AfterViewInit {
 
-  features: any;
+  public CONFERENCE_API = 'http://localhost:8080/conferences/';
 
-  constructor() { }
+  conferences: Conference[];
+
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  public dataSource = new MatTableDataSource<Conference>();
+  public displayedColumns = ['accordion'];
+
+  constructor(private conferenceService: ConferenceService, private errorService: ErrorHandlerService) { }
 
   ngOnInit() {
-    this.features = [
-      {
-       title: 'Plannifier sa semaine',
-       description: 'Visibilité sur les 7 prochains jours',
-       icon: 'assets/img/calendar.png'
-      },
-      {
-       title: 'Atteindre ses objectifs',
-       description: 'Priorisation des tâches',
-       icon: 'assets/img/award.png'
-      },
-      {
-       title: 'Analyser sa productivité',
-       description: 'Visualiser le travail accompli',
-       icon: 'assets/img/diagram.png'
+    this.conferenceService.getAll().subscribe(data => {
+      if (data) {
+        console.log(data);
+        this.conferences = data as Conference[];
+        this.dataSource.data = this.conferences as Conference[];
+        console.log(this.dataSource.data);
       }
-    ];
+    },
+    (error) => {
+      this.errorService.handleError(error);
+    });
   }
+
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+  }
+
+  public doFilter = (value: string) => {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
+
 }

@@ -1,0 +1,89 @@
+package fr.sma.webconfboard.services.Conference;
+
+import fr.sma.webconfboard.entities.Conference;
+import fr.sma.webconfboard.repository.Conference.ConferenceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.*;
+
+@Service
+public class ConferenceServiceImpl implements ConferenceService{
+
+    private ConferenceRepository conferenceRepository;
+
+    @Autowired
+    public ConferenceServiceImpl(ConferenceRepository conferenceRepository) { this.conferenceRepository = conferenceRepository;}
+
+    @Override
+    public Conference getConferenceById(Long id) { return this.conferenceRepository.getConferenceById(id);}
+
+    @Override
+    public List<Conference> getAllConferences() {
+        List<Conference> conferenceList = new ArrayList<>();
+
+        conferenceRepository.findAll().forEach(e -> conferenceList.add(e));
+
+        return conferenceList;
+    }
+
+    @Override
+    public List<Conference> getConferenceByTitle(String title) {
+        List<Conference> conferences = new ArrayList<>();
+        List<Conference> conferenceList = new ArrayList<>();
+        conferenceRepository.findAll().forEach(e -> conferences.add(e));
+
+        for(Conference conference : conferences){
+            if(conference.getTitle().equals(title)){
+                conferenceList.add(conference);
+            }
+        }
+        return conferenceList;
+    }
+
+    @Override
+    public Conference findByTitle(String title) {
+        List<Conference> conferences = new ArrayList<>();
+        conferenceRepository.findAll().forEach(e -> conferences.add(e));
+
+        for(Conference conference : conferences) {
+            if(conference.getTitle().equalsIgnoreCase(title)) {
+                return conference;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Conference save(Conference conference) { return conferenceRepository.save(conference); }
+
+    @Override
+    public Map<String, Boolean> delete(Long id) throws ResourceNotFoundException {
+        Conference conference = conferenceRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Conference not found for this id :: " + id));
+        conferenceRepository.delete(conference);
+
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted",Boolean.TRUE);
+        return response;
+    }
+
+    @Override
+    public void deleteAllConferences(){
+        List<Conference> conferences = new ArrayList<>();
+        conferenceRepository.findAll().forEach(e -> conferences.add(e));
+        conferences.forEach(conference -> conferenceRepository.delete(conference));
+    }
+
+    @Override
+    public void updateConference(Conference conference) {
+        conferenceRepository.save(conference);
+    }
+
+
+    public boolean isConferenceExist(Conference conference) {
+        return findByTitle(conference.getTitle())!=null;
+    }
+
+}

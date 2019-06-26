@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Conference } from '../../shared/models/conference.model';
+
 
 @Component({
   selector: 'ak-home-feature-card',
@@ -7,9 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeFeatureCardComponent implements OnInit {
 
-  @Input() description: string;
-  @Input() icon: string;
-  @Input() title: string;
+  @Input() public conference: Conference;
 
   constructor() { }
 
