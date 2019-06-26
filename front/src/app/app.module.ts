@@ -72,6 +72,7 @@ import { ServerErrorComponent } from './error-pages/server-error/server-error.co
 import { EditConferenceComponent } from './conference/edit-conference/edit-conference.component';
 import { ListConferenceComponent } from './conference/list-conference/list-conference.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StarsRatingComponent } from './stars-rating/stars-rating.component';
 /**
  * NgModule that includes all Material modules that are required.
  */
@@ -142,7 +143,8 @@ export class MaterialModule {}
     HomeFeaturesComponent,
     HomeFeatureCardComponent,
     EditConferenceComponent,
-    ListConferenceComponent
+    ListConferenceComponent,
+    StarsRatingComponent
   ],
   imports: [
     BrowserModule,
