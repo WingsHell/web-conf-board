@@ -2,6 +2,7 @@ package fr.sma.webconfboard.entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String categorie;
+    private @NonNull String categorie;
 
     public Category(Long id, String categorie) {
         this.categorie = categorie;

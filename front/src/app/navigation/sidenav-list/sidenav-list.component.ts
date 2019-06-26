@@ -14,15 +14,15 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       transition('expanded <=> collapsed',
         animate('225ms cubic-bezier(0.4,0.0,0.2,1)')
       ),
-    ])
-  ]
+    ]),
+  ],
 })
 export class SidenavListComponent implements OnInit {
 
   expanded: boolean;
   @HostBinding('attr.aria-expanded') ariaExpanded = this.expanded;
   @Input() item: NavItem;
-  @Input() depth: number;
+  @Input() public depth: number;
 
   constructor(public navService: NavService, public router: Router) {
       if (this.depth === undefined) {
@@ -30,7 +30,7 @@ export class SidenavListComponent implements OnInit {
       }
    }
 
-   ngOnInit() {
+   public ngOnInit() {
     this.navService.currentUrl.subscribe((url: string) => {
       if (this.item.route && url) {
         // console.log(`Checking '/${this.item.route}' against '${url}'`);

@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'ak-edit-user',
   templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.scss']
+  styleUrls: ['./edit-user.component.scss'],
 })
 export class EditUserComponent implements OnInit, OnDestroy {
 
@@ -24,7 +24,7 @@ export class EditUserComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private router: Router
             , private userService: UserService, private errorService: ErrorHandlerService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
 

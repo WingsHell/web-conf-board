@@ -6,13 +6,13 @@ import { NavItem } from './shared/navigation/nav-item';
   selector: 'ak-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild('appDrawer', { static: false }) appDrawer: ElementRef;
+  @ViewChild('appDrawer', { static: false }) public appDrawer: ElementRef;
   version = VERSION;
-  navItems: NavItem[] = [
+  public navItems: NavItem[] = [
     {
       displayName: 'DashBoard',
       iconName: 'dashboard',

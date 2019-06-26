@@ -23,9 +23,9 @@ public class Conference {
     private Integer vote;
     private Integer score;
     private Double rate;
-    private String href;
 
-    public Conference(Long id, String title, String expert, String description, String categorie, Integer vote, Integer score, Double rate, String href) {
+
+    public Conference(Long id, String title, String expert, String description, String categorie, Integer vote, Integer score, Double rate) {
         this.id = id;
         this.title = title;
         this.expert = expert;
@@ -34,7 +34,6 @@ public class Conference {
         this.vote = vote;
         this.score = score;
         this.rate = rate;
-        this.href = href;
     }
 
 }

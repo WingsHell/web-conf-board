@@ -22,9 +22,8 @@ public class User {
     private @NonNull String email;
     private @NonNull String mdp;
     private String role;
-    private String href;
 
-    public User(Long id, String nom, String prenom, String username, String email, String mdp, String role, String href) {
+    public User(Long id, String nom, String prenom, String username, String email, String mdp, String role) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -32,6 +31,5 @@ public class User {
         this.email = email;
         this.mdp = mdp;
         this.role = role;
-        this.href = href;
     }
 }

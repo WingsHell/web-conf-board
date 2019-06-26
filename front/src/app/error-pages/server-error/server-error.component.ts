@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServerErrorComponent implements OnInit {
 
   public reportedError: boolean;
-  public errorPercentage: number = 0;
+  public errorPercentage = 0;
   public timer;
 
   constructor() { }
