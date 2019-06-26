@@ -21,15 +21,20 @@ public class Conference {
     private @NonNull String description;
     private @NonNull String categorie;
     private Integer vote;
+    private Integer score;
+    private Double rate;
     private String href;
 
-    public Conference(Long id, String title, String expert, String description, String categorie, Integer vote, String href) {
+    public Conference(Long id, String title, String expert, String description, String categorie, Integer vote, Integer score, Double rate, String href) {
         this.id = id;
         this.title = title;
         this.expert = expert;
         this.description = description;
         this.categorie = categorie;
         this.vote = vote;
+        this.score = score;
+        this.rate = rate;
         this.href = href;
     }
+
 }
