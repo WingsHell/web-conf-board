@@ -1,24 +1,24 @@
     <mat-card style="width: 60%;margin-right: auto;margin-left: auto;">
         <div style="width:50%; margin: 0 auto 0 auto">
-          <table style="padding-right: 0;">
+            <table style="padding-right: 0;">
               <ng-container matColumnDef="nom">
-                <td *ngIf="!user.nom">
+                <td class="tableTd" *ngIf="!user.id">
                     Inscription
                 </td>
-                <td *ngIf="user.nom">
-                    Edition Utilisateurs
+                <td class="tableTd" *ngIf="user.id">
+                    Edition Utilisateur
                 </td>
               </ng-container>
             </table>
         </div>
       <form #userForm="ngForm"  (ngSubmit)="save(userForm.value)">
         <mat-card-content>
+          <input *ngIf="user.id" type="hidden" name="href" [(ngModel)]="user.href">
+          <input *ngIf="user.id" type="hidden" name="id" [(ngModel)]="user.id">
           <mat-grid-list cols="2" rowHeight="20rem">
             <mat-grid-tile>
               <mat-card style="width: 85%;margin-right: auto;margin-left: auto;">
                 <mat-card-content>
-                  <input *ngIf="user.nom" type="hidden" name="href" [(ngModel)]="user.href">
-                  <input *ngIf="user.nom" type="hidden" name="id" [(ngModel)]="user.id">
                   <div style="text-align: center"><h4><u>Dénomination</u> :</h4></div>
                   <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
                     <mat-grid-tile>
@@ -54,8 +54,6 @@
             <mat-grid-tile>
               <mat-card style="width: 85%;margin-right: auto;margin-left: auto;">
                 <mat-card-content>
-                  <input *ngIf="user.nom" type="hidden" name="href" [(ngModel)]="user.href">
-                  <input *ngIf="user.nom" type="hidden" name="id" [(ngModel)]="user.id">
                   <div style="text-align: center"><h4><u>Identification</u> :</h4></div>
 
                   <mat-grid-list cols="1" rowHeight="0.5rem" gutterSize="2rem">
@@ -74,14 +72,14 @@
                   <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
                     <mat-grid-tile>
 
-                        <mat-form-field *ngIf="user.nom" appearance="outline" style="width:100%">
+                        <mat-form-field *ngIf="user.id" appearance="outline" style="width:100%">
                             <mat-label><u>Mot de passe</u> :</mat-label>
                             <input matInput placeholder="Mot de passe" [(ngModel)]="user.mdp"
                                     required name="mdp" #mdp >
                         </mat-form-field>
 
 
-                      <div fxFlex fxLayout="column" *ngIf="!user.nom">  <!--  class="example-container"  -->
+                      <div fxFlex fxLayout="column" *ngIf="!user.id">  <!--  class="example-container"  -->
                         <mat-form-field appearance="outline" style="width:100%">
                           <input matInput placeholder="Entrer votre mot de passe" [type]="hide ? 'password' : 'text'">
                           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">

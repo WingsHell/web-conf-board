@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { Conference } from 'src/app/shared/models/conference.model';
 import { Subscription } from 'rxjs';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { ConferenceService } from './../../shared/services/conference.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 
 @Component({
@@ -16,31 +16,62 @@ export class ListConferenceComponent implements OnInit, AfterViewInit {
   public CONFERENCE_API = 'http://localhost:8080/conferences/';
 
   conferences: Conference[];
-
+  conferencesVoteLoad: boolean = null;
   sub: Subscription;
 
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   public dataSource = new MatTableDataSource<Conference>();
   public displayedColumns = ['accordion'];
 
-  constructor(private conferenceService: ConferenceService, private router: Router, private errorService: ErrorHandlerService ) { }
+  constructor(private route: ActivatedRoute, private router: Router
+            , private conferenceService: ConferenceService, private errorService: ErrorHandlerService) { }
 
   ngOnInit() {
-    this.conferenceService.getAll().subscribe(data => {
-      if (data) {
-        console.log(data);
-        this.conferences = data as Conference[];
-        this.dataSource.data = data as Conference[];
+    this.conferenceService.getAll().subscribe(conferences => {
+      if (conferences) {
+        console.log(conferences);
+        this.conferences = conferences as Conference[];
+        this.dataSource.data = conferences as Conference[];
         }
       },
       (error) => {
         this.errorService.handleError(error);
-      }
-    );
-  }
+      });
+    }
+
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+  }
+
+  clickVote() {
+    this.conferencesVoteLoad = true;
+    const vote = this.conferencesVoteLoad;
+    this.conferenceService.getByVoted(vote).subscribe((data: any) => {
+      if (data) {
+        this.conferences = data as Conference[];
+        this.dataSource.data = data as Conference[];
+        this.conferencesVoteLoad = false;
+      }
+    },
+    (error) => {
+      this.errorService.handleError(error);
+    });
+  }
+
+  clickNonVote() {
+    this.conferencesVoteLoad = false;
+    const vote = this.conferencesVoteLoad;
+    this.conferenceService.getByVoted(vote).subscribe((data: any) => {
+      if (data) {
+        this.conferences = data as Conference[];
+        this.dataSource.data = data as Conference[];
+        this.conferencesVoteLoad = false;
+      }
+    },
+    (error) => {
+      this.errorService.handleError(error);
+    });
   }
 
   remove(conference: Conference) {
@@ -58,7 +89,6 @@ export class ListConferenceComponent implements OnInit, AfterViewInit {
   }
 
   gotoList() {
-    this.router.navigate(['/sinistre-list']);
+    this.router.navigate(['/list-conference']);
   }
-
 }

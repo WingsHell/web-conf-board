@@ -6,12 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.text.Collator;
 import java.util.*;
 
 @Service
 public class ConferenceServiceImpl implements ConferenceService{
 
     private ConferenceRepository conferenceRepository;
+
+    private static Collator COLLATOR = Collator.getInstance(Locale.FRENCH);
 
     @Autowired
     public ConferenceServiceImpl(ConferenceRepository conferenceRepository) { this.conferenceRepository = conferenceRepository;}
@@ -40,6 +43,27 @@ public class ConferenceServiceImpl implements ConferenceService{
             }
         }
         return conferenceList;
+    }
+
+    @Override
+    public List<Conference> getConferenceIsVote(Boolean voted) {
+        List<Conference> conferences = new ArrayList<>();
+        List<Conference> conferenceVoted = new ArrayList<>();
+        conferenceRepository.findAll().forEach(e -> conferences.add(e));
+
+        for(Conference conference : conferences){
+            if(conference.getIsVoted().equals(voted)){
+                conferenceVoted.add(conference);
+            }
+        }
+        return conferenceVoted;
+    }
+
+    @Override
+    public List<Conference> getTop10ConfByRate() {
+        List<Conference> top10Conf = new ArrayList<>();
+        conferenceRepository.getTop10ConfByRate().forEach(e -> top10Conf.add(e));
+        return top10Conf;
     }
 
     @Override

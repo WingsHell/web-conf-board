@@ -73,6 +73,8 @@ import { EditConferenceComponent } from './conference/edit-conference/edit-confe
 import { ListConferenceComponent } from './conference/list-conference/list-conference.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StarsRatingComponent } from './stars-rating/stars-rating.component';
+import { Top10ConferenceComponent } from './conference/top10-conference/top10-conference.component';
+
 /**
  * NgModule that includes all Material modules that are required.
  */
@@ -144,7 +146,8 @@ export class MaterialModule {}
     HomeFeatureCardComponent,
     EditConferenceComponent,
     ListConferenceComponent,
-    StarsRatingComponent
+    StarsRatingComponent,
+    Top10ConferenceComponent
   ],
   imports: [
     BrowserModule,

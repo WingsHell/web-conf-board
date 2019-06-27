@@ -72,7 +72,7 @@ export class AppComponent implements AfterViewInit {
     {
       displayName: 'Top 10 conférences',
       iconName: 'stars',
-      route: 'top10conf',
+      route: 'top10-conference',
     }
   ];
 

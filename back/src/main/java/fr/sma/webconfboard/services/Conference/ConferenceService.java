@@ -15,6 +15,10 @@ public interface ConferenceService {
 
     List<Conference> getConferenceByTitle(String title);
 
+    List<Conference> getConferenceIsVote(Boolean vote);
+
+    List<Conference> getTop10ConfByRate();
+
     Conference save(Conference conference);
 
     Map<String, Boolean> delete(Long id);

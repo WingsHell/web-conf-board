@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.sma.webconfboard.entities.*;
 
-import fr.sma.webconfboard.services.Category.CategoryServiceImpl;
 import fr.sma.webconfboard.services.Conference.ConferenceServiceImpl;
 import fr.sma.webconfboard.services.User.UserServiceImpl;
 import org.springframework.boot.CommandLineRunner;
@@ -26,18 +25,16 @@ public class WebConfBoardApplication {
 
 
 	@Bean
-	CommandLineRunner runner(UserServiceImpl userService, ConferenceServiceImpl conferenceService, CategoryServiceImpl categoryService) {
+	CommandLineRunner runner(UserServiceImpl userService, ConferenceServiceImpl conferenceService) {
 		return args -> {
 			// read json and write to db
 
 			ObjectMapper mapper = new ObjectMapper();
 			TypeReference <User[]> typeReferenceUser = new TypeReference<User[]>(){};
 			TypeReference <Conference[]> typeReferenceConference = new TypeReference<Conference[]>(){};
-			TypeReference <Category[]> typeReferenceCategory = new TypeReference<Category[]>(){};
 
 			InputStream inputStreamUser = TypeReference.class.getResourceAsStream("/json/users.json");
 			InputStream inputStreamConference = TypeReference.class.getResourceAsStream("/json/conferences.json");
-			InputStream inputStreamCategory = TypeReference.class.getResourceAsStream("/json/categories.json");
 
 			try {
 				User[] usersList = mapper.readValue(inputStreamUser, typeReferenceUser);
@@ -79,27 +76,6 @@ public class WebConfBoardApplication {
 				}
 			} catch (IOException e) {
 				System.out.println("Unable to save conferences : " + e.getMessage());
-			}
-
-			try {
-				Category[] categoriesList = mapper.readValue(inputStreamCategory, typeReferenceCategory);
-
-				System.out.println(categoriesList);
-
-				Stream.of(categoriesList).forEach(obj-> {
-					System.out.println(obj);
-					categoryService.save((obj));
-					System.out.println("obj categorie saved");
-				});
-
-				System.out.println("Category Saved !");
-				List<Category> categoriesSaved = new ArrayList<Category>();
-				categoriesSaved = categoryService.getAllCategories();
-				for(int i=0; i< categoriesSaved.size(); i++) {
-					System.out.println(categoriesSaved.get(i));
-				}
-			} catch (IOException e) {
-				System.out.println("Unable to save categories : " + e.getMessage());
 			}
 
 		};

@@ -4,14 +4,31 @@
 
             <ng-container matColumnDef="accordion">
                 <th mat-header-cell *matHeaderCellDef>
-                  <div class="tableTd">List des Conferences</div>
-                  <div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px">
+                  <div class="tableTd" *ngIf="dataSource && conferencesVoteLoad === null">List des Conferences</div>
+                  <div class="tableTd" *ngIf="dataSource && conferencesVoteLoad === true">List des Conferences Votées</div>
+                  <div class="tableTd" *ngIf="dataSource && conferencesVoteLoad === false">List des Conferences Non Votées</div>
+                  <div fxLayout fxLayout.lt-md="column wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="250px" fxLayoutGap.lt.md="20px" style="padding:20px;">
                       <mat-form-field fxFlex="20%">
                           <mat-label><u>Recherche</u> :</mat-label>
                           <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Saisir 2/3 caractères">
                       </mat-form-field>
+                      <mat-form-field fxFlex="60%">
+                        <button mat-fab color="primary" (click)="clickVote()">
+                          Toutes
+                        </button>
+                        <button mat-fab color="primary" (click)="clickVote()">
+                          Votée
+                        </button>
+                        <button mat-fab color="warn" (click)="clickNonVote()">
+                          Non Votée
+                        </button>
+                      </mat-form-field>
+                      <mat-form-field fxFlex="20%">
+                          <button mat-fab color="primary" [routerLink]="['/add-conference']">Add</button>
+
+                    </mat-form-field>
                       <div>
-                        <button mat-fab color="primary" [routerLink]="['/add-conference']">Add</button>
+
                       </div>
                     </div>
                 </th>
@@ -53,9 +70,10 @@
               </ng-container>
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
           </table>
           <mat-paginator class="monPaginator" [pageSize]="2" [pageSizeOptions]="[2, 4, 6, 10, 20]"></mat-paginator>
       </mat-accordion>
+
   </section>
+
 

@@ -7,6 +7,7 @@ import { ListUserComponent } from './user/list-user/list-user.component';
 import { ListConferenceComponent } from './conference/list-conference/list-conference.component';
 import { EditConferenceComponent } from './conference/edit-conference/edit-conference.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { Top10ConferenceComponent } from './conference/top10-conference/top10-conference.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'list-conference', component: ListConferenceComponent},
   { path: 'add-conference', component: EditConferenceComponent },
   { path: 'edit-conference/:id', component: EditConferenceComponent },
+  { path: 'top10-conference', component: Top10ConferenceComponent },
 
 ];
 

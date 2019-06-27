@@ -46,3 +46,14 @@ td.mat-cell:first-of-type {
 .mat-expansion-panel-header-description {
   flex-grow: 1.42;
 }
+
+.mat-fab {
+  width: 70px;
+  height: 70px;
+  margin-left: 1rem;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
