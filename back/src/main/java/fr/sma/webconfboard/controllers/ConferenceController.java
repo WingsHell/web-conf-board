@@ -67,7 +67,7 @@ public class ConferenceController {
 
     // ------------------- Retrieve Conference By Title ------------------------------------------
 
-    @GetMapping(value = "/title=/{title}", produces = {MediaType.APPLICATION_JSON_VALUE })
+    @GetMapping(value = "/title/{title}", produces = {MediaType.APPLICATION_JSON_VALUE })
     public ResponseEntity<List<Conference>> getConferenceByTitle(@PathVariable final String title) {
         logger.info("Fetching Conference with title {}", title);
         List<Conference> conferences = conferenceService.getConferenceByTitle(title);
@@ -79,6 +79,42 @@ public class ConferenceController {
         }
         return new ResponseEntity<>(conferences, HttpStatus.OK);
     }
+
+    // ------------------- Retrieve Conferences By Vote ------------------------------------------
+
+    @GetMapping(value = "/voted/{voted}", produces = {MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<List<Conference>> getConferenceIsVoted(@PathVariable final Boolean voted) {
+        logger.info("Fetching Conferences with isVoted {}", voted);
+        List<Conference> conferences = conferenceService.getConferenceIsVote(voted);
+
+        if(conferences == null) {
+            logger.error("Conference with isVoted {} not found.", voted);
+            return new ResponseEntity(new CustomErrorType("Conferences with isVotes " + voted
+                    + " not found"), HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(conferences, HttpStatus.OK);
+    }
+
+    // ------------------- Retrieve Conferences top 10 by Rate---------------------------------------------
+
+    @GetMapping(value = "/top10", produces = {MediaType.APPLICATION_JSON_VALUE })
+    @ResponseBody
+    public ResponseEntity<List<Conference>> getTop10ConfByRate() {
+        logger.info("Fetching top10 Conferences by rate order DESC");
+
+        List<Conference> conferenceTop10 = new ArrayList<Conference>();
+        conferenceTop10 = conferenceService.getTop10ConfByRate();
+        if(conferenceTop10.isEmpty()){
+            logger.error("Unable to fetch an empty list");
+            return new ResponseEntity(new CustomErrorType("Conferences not found"), HttpStatus.NO_CONTENT);
+            // You many decide to return HttpStatus.NOT_FOUND
+        }
+
+        //logger.info(clientList.toString());
+
+        return new ResponseEntity<List<Conference>>(conferenceTop10, HttpStatus.OK);
+    }
+
 
     // ------------------- Create a Conference -------------------------------------------
 

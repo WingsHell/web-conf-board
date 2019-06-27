@@ -21,7 +21,15 @@ export class ConferenceService {
   }
 
   getByTitle(title: string): Observable<any> {
-    return this.http.get(this.CONFERENCE_API + '/title=/' + title);
+    return this.http.get(this.CONFERENCE_API + '/title/' + title);
+  }
+
+  getByVoted(voted: boolean): Observable<any> {
+    return this.http.get(this.CONFERENCE_API + '/voted/' + voted);
+  }
+
+  getTop10ByRate(): Observable<any> {
+    return this.http.get(this.CONFERENCE_API + '/top10');
   }
 
   save(conference: any): Observable<any> {
@@ -30,7 +38,7 @@ export class ConferenceService {
       result = this.http.put(conference.href, conference);
     } else {
       console.log('post log: ' + JSON.stringify(conference));
-      result = this.http.post(this.CONFERENCE_API + '/id', conference);
+      result = this.http.post(this.CONFERENCE_API , conference);
     }
     return result;
   }
