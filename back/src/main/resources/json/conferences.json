@@ -4,104 +4,137 @@
     "expert": "Toto",
     "description": "Indeed, a Sam Adams beyond a pin ball machine finds much coolness with a Dixie Beer near a stein. The ESB plays pinochle with the Heineken related to a Miller. A dumbly obsequious Pilsner Urquell seeks a moldy Busch.",
     "categorie": "DEBUTANT",
-    "vote": ""
+    "nbVotes": 30,
+    "score": 120,
+    "rate": 4,
+    "isVoted": true
   },
   {
     "title": "A muddy burglar ale",
     "expert": "Foo",
     "description": "Another Imperial Stout finds lice on the Sam Adams. Indeed, a crank case of a Christmas Ale slurly pees on the surly hops. When a PBR is molten, a satellite brewery can be kind to a malt for the keg. ",
     "categorie": "EXPERT",
-    "vote": ""
+    "isVoted": false
   },
   {
     "title": "A crazy dude",
     "expert": "Jean",
     "description": "Now and then, a paternal King Henry eats the Corona over a razor blade beer. Now and then, another freight train competes with some Dixie Beer of a polar bear beer.",
     "categorie": "INTERMEDIAIRE",
-    "vote": ""
+    "nbVotes": 420,
+    "score": 1653,
+    "rate": 3.9,
+    "isVoted": false
   },
   {
     "title": "A stupid rattlesnake",
     "expert": "Marcel",
     "description": "When you see the burglar ale, it means that the Dos Equis starts reminiscing about a lost buzz. When you see a moldy spudgun, it means that a bullfrog brew trembles.",
     "categorie": "AVANCE",
-    "vote": ""
+    "nbVotes": 50,
+    "score": 220,
+    "rate": 4.4,
+    "isVoted": true
   },
   {
     "title": "A mean-spirited booze",
     "expert": "Luc",
     "description": "A Hops Alligator Ale inside the bull ice hibernates, and another scooby snack hibernates; however, the Dixie Beer inside the air hocky table derives perverse satisfaction from the jersey cow defined by a Hops Alligator Ale.",
     "categorie": "NOVICE",
-    "vote": ""
+    "isVoted": false
   },
   {
     "title": "The frightened Jamaica Red Ale",
     "expert": "Henry",
     "description": "Any broken bottle can carelessly sanitize a shabby Wolverine Beer, but it takes a real polar bear beer to make love to a Busch. Indeed, a Pilsner secretly admires some micro brew about the bud light.",
     "categorie": "DEBUTANT",
-    "vote": ""
+    "nbVotes": 12,
+    "score": 24,
+    "rate": 2,
+    "isVoted": false
   },
   {
     "title": "The Fraoch Heather Ale for a PBR",
     "expert": "Marc",
     "description": "The blue moon over the pit viper figures out a Dos Equis inside a Bridgeport ESB, but a bar tab beyond the milwakees best plans an escape from a Sierra Nevada a bud light. ",
     "categorie": "EXPERT",
-    "vote": ""
+    "nbVotes": 200,
+    "score": 750,
+    "rate": 3.7,
+    "isVoted": true
   },
   {
     "title": "The bud light behind a miller light",
     "expert": "Hervé",
     "description": "When the Sam Adams toward the hops gets stinking drunk, the power drill drink from a Keystone flies into a rage. When you see another surly hops, it means that a greasy scooby snack leaves.",
     "categorie": "INTERMEDIAIRE",
-    "vote": ""
+    "nbVotes": 78,
+    "score": 390,
+    "rate": 5,
+    "isVoted": true
   },
   {
     "title": "A psychotic Miller",
     "expert": "Michel",
     "description": "Some financial razor blade beer makes a pact with the Bridgeport ESB over a Home brew.",
     "categorie": "AVANCE",
-    "vote": ""
+    "nbVotes": 42,
+    "score": 172,
+    "rate": 4.1,
+    "isVoted": false
   },
   {
     "title": "An Avery IPA for a scooby snack",
     "expert": "Bernard",
     "description": "Any polar bear beer can require assistance from an Imperial Stout from a Hops Alligator Ale.",
     "categorie": "NOVICE",
-    "vote": ""
+    "nbVotes": 25,
+    "score": 40,
+    "rate": 1.6,
+    "isVoted": false
   },
   {
     "title": "A broken bottle",
     "expert": "Henry",
     "description": "Now and then, the seldom optimal Dixie Beer figures out a Labatts.",
     "categorie": "DEBUTANT",
-    "vote": ""
+    "nbVotes": 2,
+    "score": 7,
+    "rate": 3.5,
+    "isVoted": false
   },
   {
     "title": "A Stella Artois",
     "expert": "Cyril",
     "description": "Sometimes an almost wavy razor blade beer earns enough for a beer. but a loose bill always borrows money from a Bridgeport ESB behind an IPA!",
     "categorie": "EXPERT",
-    "vote": ""
+    "nbVotes": 95,
+    "score": 370,
+    "rate": 3.9,
+    "isVoted": true
   },
   {
     "title": "A gratifying customer",
     "expert": "Johana",
     "description": "If a lover inside a rattlesnake organizes a lover inside a Full Sail IPA, then a soggy ice house dies.",
     "categorie": "INTERMEDIAIRE",
-    "vote": ""
+    "isVoted": false
   },
   {
     "title": "A Long Trail Ale",
     "expert": "Sandrine",
     "description": "For example, a pathetic Bridgeport ESB indicates that a tornado brew behind an Avery IPA seeks a Budweiser Select. Sometimes a porter defined by an Ipswich Ale ruminates, but another line dancer always reaches an understanding with the soggy colt 45!",
     "categorie": "AVANCE",
-    "vote": ""
+    "nbVotes": 244,
+    "score": 1080,
+    "rate": 4.4,
+    "isVoted": true
   },
   {
     "title": "The lover behind a Coors",
     "expert": "Céline",
     "description": "If an Octoberfest satiates a hairy Strohs, then a grizzly beer from a scooby snack reads a magazine. Another jersey cow, the Amarillo Pale Ale, and another Mango Beer are what made America great!",
     "categorie": "NOVICE",
-    "vote": ""
+    "isVoted": false
   }
 ]

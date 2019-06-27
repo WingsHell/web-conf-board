@@ -20,20 +20,22 @@ public class Conference {
     private @NonNull String expert;
     private @NonNull String description;
     private @NonNull String categorie;
-    private Integer vote;
+    private Integer nbVotes;
     private Integer score;
     private Double rate;
+    private @NonNull Boolean isVoted;
 
 
-    public Conference(Long id, String title, String expert, String description, String categorie, Integer vote, Integer score, Double rate) {
+    public Conference(Long id, String title, String expert, String description, String categorie, Integer nbVotes, Integer score, Double rate, Boolean isVoted) {
         this.id = id;
         this.title = title;
         this.expert = expert;
         this.description = description;
         this.categorie = categorie;
-        this.vote = vote;
+        this.nbVotes = nbVotes;
         this.score = score;
         this.rate = rate;
+        this.isVoted = isVoted;
     }
 
 }
