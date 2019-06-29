@@ -1,0 +1,28 @@
+.mat-table {
+  margin: auto;
+}
+
+th.mat-header-cell {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 17px;
+  padding: 1rem 0 1rem 0;
+}
+
+table.mat-table {
+  border-spacing: 1px;
+}
+
+td.mat-cell, th.mat-header-cell {
+  border-bottom-style: inherit;
+}
+
+td.mat-cell:last-of-type {
+  padding-right: 0px;
+}
+
+td.mat-cell:first-of-type {
+  padding-left: 0px;
+}
+
+

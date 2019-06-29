@@ -27,11 +27,11 @@ export class ListConferenceComponent implements OnInit, AfterViewInit {
             , private conferenceService: ConferenceService, private errorService: ErrorHandlerService) { }
 
   ngOnInit() {
-    this.conferenceService.getAll().subscribe(conferences => {
-      if (conferences) {
-        console.log(conferences);
-        this.conferences = conferences as Conference[];
-        this.dataSource.data = conferences as Conference[];
+    this.conferenceService.getAll().subscribe(data => {
+      if (data) {
+        console.log(data);
+        this.conferences = data.result;
+        this.dataSource.data = this.conferences as Conference[];
         }
       },
       (error) => {
@@ -45,11 +45,12 @@ export class ListConferenceComponent implements OnInit, AfterViewInit {
   }
 
   clickToutes() {
-    this.conferenceService.getAll().subscribe(conferences => {
-      if (conferences) {
-        console.log(conferences);
-        this.conferences = conferences as Conference[];
-        this.dataSource.data = conferences as Conference[];
+    this.conferencesVoteLoad = null;
+    this.conferenceService.getAll().subscribe(data => {
+      if (data) {
+        console.log(data);
+        this.conferences = data.result;
+        this.dataSource.data = this.conferences as Conference[];
         }
       },
       (error) => {
@@ -60,11 +61,12 @@ export class ListConferenceComponent implements OnInit, AfterViewInit {
   clickVote() {
     this.conferencesVoteLoad = true;
     const vote = this.conferencesVoteLoad;
-    this.conferenceService.getByVoted(vote).subscribe((data: any) => {
+    console.log(vote);
+    this.conferenceService.getByVoted(vote).subscribe(data => {
       if (data) {
-        this.conferences = data as Conference[];
-        this.dataSource.data = data as Conference[];
-        this.conferencesVoteLoad = false;
+        this.conferences = data.result;
+        console.log(data);
+        this.dataSource.data = this.conferences as Conference[];
       }
     },
     (error) => {
@@ -75,11 +77,12 @@ export class ListConferenceComponent implements OnInit, AfterViewInit {
   clickNonVote() {
     this.conferencesVoteLoad = false;
     const vote = this.conferencesVoteLoad;
-    this.conferenceService.getByVoted(vote).subscribe((data: any) => {
+    console.log(vote);
+    this.conferenceService.getByVoted(vote).subscribe(data => {
       if (data) {
-        this.conferences = data as Conference[];
-        this.dataSource.data = data as Conference[];
-        this.conferencesVoteLoad = false;
+        console.log(data);
+        this.conferences = data.result;
+        this.dataSource.data = this.conferences as Conference[];
       }
     },
     (error) => {
@@ -91,8 +94,8 @@ export class ListConferenceComponent implements OnInit, AfterViewInit {
     conference.href = this.CONFERENCE_API + conference.id;
     this.conferenceService.remove(conference.href).subscribe(result => {
       this.conferenceService.getAll().subscribe(data => {
-        this.conferences = data as Conference[];
-        this.dataSource.data = data as Conference[];
+        this.conferences = data.result;
+        this.dataSource.data = this.conferences as Conference[];
       });
     }, error => console.error(error));
   }

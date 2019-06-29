@@ -1,0 +1,92 @@
+<mat-card style="width: 60%;margin-right: auto;margin-left: auto;">
+  <div style="width:50%; margin: 0 auto 0 auto">
+    <table style="padding-right: 0;">
+      <ng-container matColumnDef="voted">
+        <td class="tableTd">
+            {{conference.title ? 'Edition' : 'Ajouter'}} Conference
+        </td>
+      </ng-container>
+    </table>
+  </div>
+<form #conferenceForm="ngForm"  (ngSubmit)="save(conferenceForm.value)">
+  <mat-card-content>
+    <mat-grid-list cols="2" rowHeight="20rem">
+      <mat-grid-tile>
+        <mat-card style="width: 85%;margin-right: auto;margin-left: auto;">
+          <mat-card-content>
+            <input *ngIf="conference.title" type="hidden" name="href" [(ngModel)]="conference.href">
+            <input *ngIf="conference.title" type="hidden" name="id" [(ngModel)]="conference.id">
+            <div style="text-align: center"><h4><u>Informations Principales</u> :</h4></div>
+            <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
+              <mat-grid-tile>
+                <mat-form-field appearance="outline" style="width:100%">
+                  <mat-label><u>Titre</u> :</mat-label>
+                  <input matInput placeholder="Titre" [(ngModel)]="conference.title"
+                          name="title" #title>
+                  </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
+              <mat-grid-tile>
+                <mat-form-field appearance="outline" style="width:100%">
+                  <mat-label><u>Expert</u> :</mat-label>
+                  <input matInput placeholder="Expert" [(ngModel)]="conference.expert"
+                          name="expert" #expert>
+                  </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="1" rowHeight="4rem" gutterSize="2rem">
+              <mat-grid-tile>
+                <mat-form-field appearance="outline" style="width:100%">
+                  <mat-label><u>Categorie</u> :</mat-label>
+                    <mat-select placeholder="Categorie" (selectionChange)="onChange($event)"
+                    [(ngModel)]="conference.categorie" name="categorie" #categorie>
+                    <mat-option *ngFor="let opt of selectOptions" [value]="opt.value">
+                      {{opt.name}}
+                    </mat-option>
+
+                      <!-- <mat-option *ngFor="let opt of selectOptions"
+                      [(ngModel)]="conference.categorie" name="categorie" #categorie>
+                        {{opt.name}}
+                      </mat-option> -->
+                    </mat-select>
+                  </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card style="width: 85%;margin-right: auto;margin-left: auto;">
+          <mat-card-content>
+            <div style="text-align: center"><h4><u>Description</u> :</h4></div>
+            <mat-grid-list cols="1" rowHeight="12rem" gutterSize="2rem">
+              <mat-grid-tile>
+                  <mat-form-field style="width:100%">
+                    <mat-label><u>Déscription Conférence</u> :</mat-label>
+                      <textarea matInput placeholder="Déscription de la conférence"
+                      [(ngModel)]="conference.description" name="description" #description></textarea>
+                  </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+
+<mat-card-actions>
+      <div style="text-align: center">
+        <button mat-raised-button class="btn-card" color="primary" type="submit"
+            *ngIf="!conference.href"[disabled]="!conferenceForm.form.valid">Save</button>
+        <button mat-raised-button class="btn-card" color="secondary" (click)="update(conferenceForm.value)"
+            *ngIf="conference.href" type="button">Update</button>
+        <button mat-raised-button class="btn-card" color="secondary" (click)="remove(conferenceForm.value)"
+            *ngIf="conference.href" type="button">Delete</button>
+        <a mat-button [routerLink]="['/list-conference']">Cancel</a>
+      </div>
+</mat-card-actions>
+</form>
+</mat-card>
+
