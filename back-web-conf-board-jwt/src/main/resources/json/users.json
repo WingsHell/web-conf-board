@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "nom": "Jean",
+    "prenom": "Rénaud",
+    "username": "nono",
+    "email": "jean.renaud@gmail.com",
+    "password": "nono",
+    "role": "MEMBRE"
+  },
+  {
+    "id": "2",
+    "nom": "Philip",
+    "prenom": "Morris",
+    "username": "momo",
+    "email": "philip.morris@gmail.com",
+    "password": "momo",
+    "role": "MEMBRE"
+  },
+  {
+    "id": "3",
+    "nom": "User",
+    "prenom": "user",
+    "username": "user",
+    "email": "user.user@gmail.com",
+    "password": "user",
+    "role": "MEMBRE"
+  },
+  {
+    "id": "4",
+    "nom": "Admin",
+    "prenom": "Admin",
+    "username": "admin",
+    "email": "admin.admin@gmail.com",
+    "password": "admin",
+    "role": "ADMIN"
+  },
+  {
+    "id": "5",
+    "nom": "Toto",
+    "prenom": "Le-Blanc",
+    "username": "toto",
+    "email": "toto.toto@gmail.com",
+    "password": "toto",
+    "role": "MEMBRE"
+  }
+]

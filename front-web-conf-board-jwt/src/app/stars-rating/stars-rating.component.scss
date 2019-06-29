@@ -1,0 +1,77 @@
+.star-ratings {
+  text-align: center;
+  margin: auto;
+  padding:auto;
+  border: none;
+  width: 200px;
+}
+
+.star svg {
+  width: 20px;
+  height: 20x;
+  margin: 0 2px;
+}
+
+.star {
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 1.41421;
+}
+
+.star:hover {
+  cursor: pointer;
+}
+
+.star path.star-border {
+  fill: rgb(65,64,66);
+  fill-opacity: 0.1;
+  fill-rule: nonzero;
+}
+
+.star path.star-body {
+  fill: rgb(202, 202, 202);
+  fill-rule: nonzero;
+}
+
+.star path.star-body:hover{
+  fill:rgb(240,211,85);
+}
+
+.star.hovered path.star-body,
+.star.rated-star path.star-body {
+  fill: rgb(240,211,85);
+}
+
+.star-ratings .rating span svg {
+  width: 226px;
+  margin: 0 auto 1em;
+  font-size: 45px;
+  overflow:hidden;
+}
+
+.star-ratings .rating span a svg {
+  float:right;
+  color: #aaa;
+  text-decoration: none;
+  -webkit-transition: color .4s;
+  -moz-transition: color .4s;
+  -o-transition: color .4s;
+  transition: color .4s;
+}
+.star-ratings .rating span a svg:hover,
+.star-ratings .rating span a svg:hover ~ a,
+.star-ratings .rating span a svg:focus,
+.star-ratings .rating span a svg:focus ~ a	{
+  color: orange;
+  cursor: pointer;
+}
+
+/*element1~element2	p ~ ul	Selects every <ul> element that are preceded by a <p> element*/
+.star-ratings .rating2 span svg{
+  direction: rtl;
+}
+
+.star-ratings .rating2 span a svg{
+  float:none;
+}

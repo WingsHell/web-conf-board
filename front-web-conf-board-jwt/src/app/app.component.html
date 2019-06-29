@@ -1,0 +1,15 @@
+<ak-header class="fixed-topnav" fxHide.gt-xs></ak-header>
+<mat-sidenav-container>
+    <mat-sidenav #appDrawer mode="over" opened="false">
+        <mat-nav-list>
+            <ak-sidenav-list *ngFor="let item of navItems" [item]="item"></ak-sidenav-list>
+        </mat-nav-list>
+    </mat-sidenav>
+    <ak-header fxHide.xs></ak-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <div fxFlex>
+    </div>
+    <span class="version-info">Current build(angular version): {{version.full ? version.full : version}}</span>
+</mat-sidenav-container>
