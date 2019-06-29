@@ -44,6 +44,19 @@ export class ListConferenceComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  clickToutes() {
+    this.conferenceService.getAll().subscribe(conferences => {
+      if (conferences) {
+        console.log(conferences);
+        this.conferences = conferences as Conference[];
+        this.dataSource.data = conferences as Conference[];
+        }
+      },
+      (error) => {
+        this.errorService.handleError(error);
+      });
+    }
+
   clickVote() {
     this.conferencesVoteLoad = true;
     const vote = this.conferencesVoteLoad;
