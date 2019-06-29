@@ -4,12 +4,18 @@
 
 project to make web conf more easier to manage
 
-# Getting started
+## Getting started Client
 
-    Go to project folder and install dependencies:
+    Go to front folder and install dependencies:
 
 npm install
 
     Launch development server, and open localhost:4200 in your browser:
 
 npm start
+
+## Getting started Serveur
+
+    Open in Ide like IntelliJ update springBoot dependencies if ask as alert (normaly) 
+    
+run server ( or alt+f10) 
